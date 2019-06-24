@@ -1,7 +1,7 @@
 # NeuralNetworks
 
 This is an experiment for self-education on how to build a Neural Network.
-The design and math behind this project is based off a series of videos from the youtuber 3Blue1Brown 
+The idea, design and math behind this project is inspired a series of videos from the youtuber 3Blue1Brown 
 (https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)
 
 Currently, the networks are able to be saved and loaded for later use.
