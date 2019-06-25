@@ -33,6 +33,9 @@ public class NeuralNetwork {
 
 	public void setInputs(ArrayList<Double> inputs) {
 		networkLayers.get(0).setInputs(inputs);
+
+		// For testing
+		// networkLayers.get(0).getInputs();
 	}
 
 	// test

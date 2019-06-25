@@ -12,15 +12,15 @@ import core.Neuron;
 import core.NeuronLayer;
 
 public class NetworkSaver {
-	public static void save(String fileName, NeuralNetwork network) {
+	public static void save(String fileName, NeuralNetwork network, int lastSet) {
 		File file = new File(fileName);
 		try {
 			if (file.createNewFile())
-				saveProcess(file, network);
+				saveProcess(file, network, lastSet);
 			else {
 				file.delete();
 				file.createNewFile();
-				saveProcess(file, network);
+				saveProcess(file, network, lastSet);
 			}
 		} catch (IOException e) {
 			System.out.println(e);
@@ -28,7 +28,8 @@ public class NetworkSaver {
 
 	}
 
-	public static void saveProcess(File file, NeuralNetwork network) throws IOException {
+	public static void saveProcess(File file, NeuralNetwork network, int lastSet)
+			throws IOException {
 		System.out.println("Saving");
 		FileWriter fw = new FileWriter(file);
 		BufferedWriter bw = new BufferedWriter(fw);
@@ -58,6 +59,7 @@ public class NetworkSaver {
 			bw.newLine();
 			bw.newLine();
 		}
+		bw.write("" + lastSet);
 		bw.close();
 	}
 }

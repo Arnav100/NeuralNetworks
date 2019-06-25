@@ -9,6 +9,8 @@ import core.NeuralNetwork;
 import core.NeuronLayer;
 
 public class NetworkLoader {
+	public static int lastSet = 0;
+
 	public static NeuralNetwork load(String fileName) {
 		File file = new File(fileName);
 		if (!file.exists())
@@ -37,6 +39,11 @@ public class NetworkLoader {
 					}
 				}
 			}
+
+			while (!in.hasNextInt())
+				in.nextLine();
+
+			lastSet = in.nextInt();
 
 		} catch (IOException e) {
 			System.out.println(e);

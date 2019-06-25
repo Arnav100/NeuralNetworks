@@ -70,7 +70,7 @@ public class BackPropagator {
 		for (Connection c : backConnections) {
 			n = c.getBack();
 			double change = weightAdjustments.get(weightLength++);
-			c.setWeight(c.getWeight() - change * 1.5); // Apply the change to
+			c.setWeight(c.getWeight() - change * 100); // Apply the change to
 														// the current, 1.5 to
 														// make it a bit faster
 			applyChanges(n);
@@ -80,6 +80,7 @@ public class BackPropagator {
 	private void findChanges(Neuron n) {
 		if (n.isInput())
 			return;
+		// System.out.println("Neuron " + n.getId());
 		ArrayList<Connection> backConnections = n.getBackConnections();
 		for (Connection c : backConnections) {
 			Neuron back = c.getBack();
@@ -137,15 +138,13 @@ public class BackPropagator {
 		getNetworkOutput();
 		for (int i = 0; i < output.size(); i++) {
 			cost += (output.get(i) - expected.get(i)) * (output.get(i) - expected.get(i));
-			if (test == 0)
-				System.out.println("Expected " + i + ":" + expected.get(i) + "\n");
 		}
-
+		System.out.print(".");
 		if (++samplesChecked == sampleSize) {
 			cost /= sampleSize;
 			test++;
-			if (test % 25 == 0)
-				System.out.println(cost);
+
+			System.out.println("\nCost: " + cost);
 		}
 
 	}

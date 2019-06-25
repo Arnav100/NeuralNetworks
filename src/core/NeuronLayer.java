@@ -32,6 +32,20 @@ public class NeuronLayer {
 			neurons.get(i).setInput(inputs.get(i));
 	}
 
+	public void getInputs() {
+		System.out.println("\nInput Vals\n");
+		for (int i = 0; i < 28; i++) {
+			for (int j = 0; j < 28; j++) {
+				String num = "" + (int) neurons.get(j + 28 * i).getValue();
+				while (num.length() < 3)
+					num = " " + num;
+				System.out.print(num + " ");
+			}
+			System.out.println();
+		}
+		System.out.println("\n");
+	}
+
 	public ArrayList<Neuron> getNeurons() {
 		return neurons;
 	}
